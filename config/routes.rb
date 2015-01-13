@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sessions/login_or_create', :as => "login"
+
+  get 'sessions/logout', :as => "logout"
+
   get 'draugiem/auth', :as => "draugiem"
 
   get 'draugiem/callback', :as => "draugiem_callback"

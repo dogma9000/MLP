@@ -7,6 +7,12 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
+		<% if current_user.nil? %>
+			<%= link_to "login", draugiem_path %>
+		<% else %>
+			Hello, <%= current_user.name %>
+			<%= link_to "logout", logout_path %>
+		<% end %> 
 		<div class="hat">
 			<img src="../assets/hat_image.jpg">
 		</div>

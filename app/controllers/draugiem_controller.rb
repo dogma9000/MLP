@@ -14,7 +14,7 @@ require "net/http"
 			response = get_draugiem_login_params params
 			real_response = JSON.parse(response)
 			userJson = real_response["users"][real_response["uid"]]
-			redirect_to login_path(:provider => "draugiem", :uid => real_response["uid"], :name => userJson["name"], :surname => userJson["surname"], :email => "", :image => userJson["img"])
+			redirect_to login_path(:provider => "draugiem", :uid => real_response["uid"], :name => userJson["name"], :surname => userJson["surname"], :image => userJson["img"])
 		else
 			redirect_to root_path
 		end
