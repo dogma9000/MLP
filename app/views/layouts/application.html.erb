@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Main</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="hat">
+			<img src="../assets/hat_image.jpg">
+		</div>
+		<div class="menu">
+			 <ul>
+				<li><a href="sections/stories.html">Stories</a></li>
+				<li><a href="sections/art.html">art</a></li>
+				<li><a href="sections/music.html">music</a></li>
+				<li><a href="sections/soft.html">soft</a></li>
+				<li><%= link_to "submit", general_upload_path %></li>
+			</ul> 
+		</div>
+		<div class="main">
+			<%= yield %>
+			<div class="footer"></div>
+		</div>
+	</body>
+</html>

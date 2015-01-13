@@ -1,0 +1,16 @@
+<div class="static_article">
+	<p>  	
+	</p>
+</div>
+<div class="active_article">
+<div class="banner1"><img src="../images/side_skyscraper.jpg"></div>
+	<div class="submit_box">
+		<%= form_for @file, :url => general_create_uploaded_path, :html => { :multipart => true } do |form| %>
+			<%= form.file_field :file %>
+			<%= form.text_field :description %>
+			<%= form.submit "pievienot" %>
+		<% end %>
+	</div>
+</div>
+
+

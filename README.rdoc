@@ -1,0 +1,152 @@
+== README
+
+*rails new mlp
+*bundle install
+
+*rails g model acticle title:string content:text
+*rails g model static_article title:string conte
+nt:text permalink:string
+
+#permalink - pastaviga saite
+
+*rails g model banner title:sting url:string sta
+rt:date expires:date height:integer banner_group:integer
+
+*rails g model user name:string surname:string u
+id:string provider:string pic_url:string
+
+*rails g model uploaded_file type:references user:referen
+ces is_public:boolean is_checked:boolean title:string description:text
+
+rake db:migrate
+
+*rails g paperclip uploaded_file file
+*rails g paperclip banner banner_file
+*rails g paperclip article image
+*rails g active_admin:install
+*rails g active_admin:resource user 
+*rails g active_admin:resource uploaded_file
+*rails g active_admin:resource banner
+*rails g active_admin:resource article
+*rails g active_admin:resource static_article
+*rails g active_admin:resource type
+*rake db:migrate
+
+#go to active admin
+#searsh for: rails lv get raw to C:\Users\mizumo\Documents\mlp\config\locales
+# go trough sublime to config -> locales -> applications.rb
+# uncheck "config.i18n.default_locale = :lv"
+# (for this computer only) paste Paperclip.options[:command_path] = 'C:/Program Files/ImageMagick-6.9.0-Q16' to config - > environments -> development.rb 
+
+*rake db:migrate
+in seed file Type.create(:title => "Stories", :permalink => "stories")
+*rake db:seed
+
+rails g controller general index
+config -> routes: root 'general#index' 
+innsert css into application css
+insert html excluding changing elements into application.html.erb
+replace visu no zem /title līdz /head ar genereto saturu
+<%= yield %> likt mainigas daļās
+
+nokopet bildes uz app-assets-images
+
+general_controller zem index ierakstit:
+def upload
+	@file=UploadedFile.new
+end
+
+get 'general/upload' zem get 'general/index'
+*rake routes
+generetaja faila (uploads) ierakstit:
+
+<div class="static_article">
+	<p>  	
+	</p>
+</div>
+<div class="active_article">
+<div class="banner1"><img src="../images/side_skyscraper.jpg"></div>
+	<div class="submit_box">
+		<form action="demo_form.asp">
+		  <input type="file" name="pic" accept="image/*">					  
+		  	<p>Description:
+				<input type="text" name="textline" size="30">
+			</p>
+			<input type="submit">					
+		</form> 
+	</div>
+</div>
+
+ierakstit faila general_controller.rb:
+def create_uploaded
+  	@file=UploadedFile.new(params[:uploaded_file])
+  	@file.save
+  	redirect_to root_url
+  end
+
+ post 'general/create_uploaded' -ierakstit routes.rb
+ pielikt pie  uploaded files in models:
+ has_attached_file :file
+ do_not_validate_attachment_file_type :file
+
+ upload.html.erb submit_box ierakst:
+ <%= form_for @file, :url => general_create_uploaded_path, :html => { :multipart => true } do |form| %>
+			<%= form.file_field :file %>
+			<%= form.text_field :description %>
+			<%= form.submit "pievienot" %>
+		<% end %>
+general_controller.rb pielikt :
+  def create_uploaded
+  	@file=UploadedFile.new(uploaded_file_params)
+  	@file.save
+  	redirect_to root_url
+  end
+  private
+  def uploaded_file_params
+  	params.require(:uploaded_file).permit(:file, :description)
+  end
+
+redaket uploaded_file:
+
+permit_params do
+    permitted = [:title, :url, :start, :expires, :height, :banner_group, :banner_file]
+    permitted
+  end
+  form :html => { :enctype => "multipart/form-data" } do |f|
+    f.inputs "articles" do
+      f.input :title
+      f.input :url
+      f.input :banner_file, :as => :file
+      f.input :start
+      f.input :expires
+      f.input :height
+      f.input :banner_group
+    end
+    f.actions
+  end
+  show do
+    attributes_table do
+      row :title
+      row :url
+      row :banner_group
+      row :start
+      row :expires
+      row :height
+      row :banner_file do
+        image_tag banner.banner_file.url(:thumb)
+      end
+    end
+  end
+
+  login_draugiem izveidot
+DRAUGIEM_API_AUTHORIZE_PATH = "http://api.draugiem.lv/authorize/"
+DRAUGIEM_APP_KEY = "15018427"
+DRAUGIEM_APP_ID = "9edc2f37b70d60a829529b4e34c216c2"
+DRAUGIEM_API_PATH = "http://api.draugiem.lv/json/"
+
+*rails g controller draugiem auth callback
+
+in routes izlabot:
+  get 'draugiem/auth', :as => "draugiem"
+
+  get 'draugiem/callback', :as => "draugiem_callback"
