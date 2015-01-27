@@ -39,3 +39,4 @@ gem 'paperclip'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+gem 'twitter_oauth'

@@ -22,7 +22,7 @@ require "net/http"
 
 	private
 		def get_draugiem_login_uri
-			redirect = "http://localhost:3000/"+url_for(draugiem_callback_path)
+			redirect = "http://localhost:3000"+url_for(draugiem_callback_path)
 			hash = Digest::MD5.hexdigest(DRAUGIEM_APP_KEY + redirect)
 			"#{DRAUGIEM_API_AUTHORIZE_PATH}?app=#{DRAUGIEM_APP_ID}&hash=#{hash}&redirect=#{redirect}"
 		end

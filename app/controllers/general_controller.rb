@@ -1,4 +1,5 @@
 class GeneralController < ApplicationController
+  before_filter :banner_setter
   def index
   end
   def upload

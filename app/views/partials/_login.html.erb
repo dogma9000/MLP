@@ -1,0 +1,15 @@
+<% if current_user.nil? %>
+	<div class="login">
+		<ul>
+			<li>
+				<%= link_to image_tag("facebook_small.png", onmouseover: "this.src='#{asset_path('facebook_big.png')}'", onmouseout: "this.src='#{asset_path('facebook_small.png')}'"), twitter_path %>
+			</li>
+			<li>
+				<%= link_to image_tag("draugiem_small.png", onmouseover: "this.src='#{asset_path('draugiem_big.png')}'", onmouseout: "this.src='#{asset_path('draugiem_small.png')}'"), draugiem_path %>
+			</li>
+		</ul> 
+	</div>
+<% else %>
+	Hello, <%= current_user.name %>
+	<%= link_to "logout", logout_path %>
+<% end %> 

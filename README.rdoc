@@ -140,8 +140,8 @@ permit_params do
 
   login_draugiem izveidot
 DRAUGIEM_API_AUTHORIZE_PATH = "http://api.draugiem.lv/authorize/"
-DRAUGIEM_APP_KEY = "15018427"
-DRAUGIEM_APP_ID = "9edc2f37b70d60a829529b4e34c216c2"
+DRAUGIEM_APP_KEY = "9edc2f37b70d60a829529b4e34c216c2"
+DRAUGIEM_APP_ID = "15018427"
 DRAUGIEM_API_PATH = "http://api.draugiem.lv/json/"
 
 *rails g controller draugiem auth callback
@@ -150,3 +150,14 @@ in routes izlabot:
   get 'draugiem/auth', :as => "draugiem"
 
   get 'draugiem/callback', :as => "draugiem_callback"
+
+
+  *rails generate controller sessions login_or_create logout
+
+  skatīt:
+  application_controller.rb
+  application_helper.rb
+  session_controller.rb
+  routes.rb
+
+  

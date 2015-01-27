@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'login/auth'
+
+  get 'login/callback'
+
+  get 'twitter/auth', :as => "twitter"
+
+  get 'twitter/callback', :as => "twitter_callback"
+
   get 'sessions/login_or_create', :as => "login"
 
   get 'sessions/logout', :as => "logout"

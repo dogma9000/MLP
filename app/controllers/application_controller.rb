@@ -19,4 +19,7 @@ class ApplicationController < ActionController::Base
             User.find(session[:current_user])
         end
     end
+    def banner_setter
+      @banner=Banner.last
+    end
 end

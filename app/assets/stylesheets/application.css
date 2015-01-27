@@ -14,7 +14,11 @@
  */
 
 body{
-	background-color: black;
+    background-image: url("../assets/cutiemark_image.jpg");
+    background-color: #000000;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right; 
 }
 ul {
     list-style-type: none;
@@ -60,13 +64,13 @@ li {
     color: black;
 }
 .static_article{
-	margin: 20px;
+    margin: 20px;
     padding-bottom: 1px;
     padding: 20px;
-	background-color: gray;
+    background-color: gray;
 }
 .active_article{
-	margin: 20px;
+    margin: 20px;
     padding: 20px;
     background-color: blue;
 }
@@ -151,4 +155,7 @@ li {
 }
 .clear{
     clear: both;
+}
+.login{
+    position: fixed;   
 }
