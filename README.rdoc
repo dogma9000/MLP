@@ -1,11 +1,16 @@
+
+Darbojas sava starpa:
+controller
+html.erb faili
+routes.rb 
+
 == README
 
 *rails new mlp
 *bundle install
 
 *rails g model acticle title:string content:text
-*rails g model static_article title:string conte
-nt:text permalink:string
+*rails g model static_article title:string content:text permalink:string
 
 #permalink - pastaviga saite
 
