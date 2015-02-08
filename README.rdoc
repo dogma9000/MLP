@@ -166,3 +166,4 @@ in routes izlabot:
   routes.rb
 
   
+  sataisit atradisanas lapas

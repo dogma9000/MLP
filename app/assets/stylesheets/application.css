@@ -72,7 +72,7 @@ li {
 .active_article{
     margin: 20px;
     padding: 20px;
-    background-color: blue;
+    background-color: gray;
 }
 .article{
     background-color: white;

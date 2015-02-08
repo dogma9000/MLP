@@ -1,0 +1,15 @@
+<div class="static_article">
+	<p>  	
+	</p>
+</div>
+<div class="active_article">
+	<table style="width:100%">
+		<% @songs.each do |song| %>
+		  	<tr>
+			    <td><%= song.title %></td>
+			    <td><%= song.user.full_name %>r</td>		
+			    <td><%= link_to "download", song.file.url %></td>
+		  	</tr>
+		<% end %>
+	</table>
+</div>

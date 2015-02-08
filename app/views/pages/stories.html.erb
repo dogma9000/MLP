@@ -1,0 +1,19 @@
+<div class="static_article">
+	<p>  	
+	</p>
+</div>
+<div class="active_article">
+	<div class="stories">	
+		<table style="width:100%">
+			<% @books.each do |book| %>
+			  	<tr>
+				    <td><%= book.title %></td>
+				    <td><%= book.user.full_name %>r</td>		
+				    <td><%= book.description %></td>
+				    <td><%= link_to "download", book.file.url %></td>						    
+				</tr>
+			<% end %>
+		</table>
+	</div>
+	
+</div>

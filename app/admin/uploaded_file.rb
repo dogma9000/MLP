@@ -1,6 +1,6 @@
 ActiveAdmin.register UploadedFile do
   permit_params do
-    permitted = [:type, :user, :title, :description, :file, :is_public, :is_checked]
+    permitted = [:type, :user, :title, :description, :file, :is_public, :is_checked, :type_id, :user_id]
     permitted
   end
   form :html => { :enctype => "multipart/form-data" } do |f|

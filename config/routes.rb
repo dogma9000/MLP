@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'draugiem/callback', :as => "draugiem_callback"
 
   get 'general/index'
+  get 'pages/stories'
+  get 'pages/art'
+  get 'pages/music'
+  get 'pages/soft'
   get 'general/upload'
   post 'general/create_uploaded'
   devise_for :admin_users, ActiveAdmin::Devise.config
