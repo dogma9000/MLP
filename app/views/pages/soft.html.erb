@@ -9,7 +9,7 @@
 	<div class="random_icons">
 		<ul>
 			<% @software.each do |soft| %>
-				<li><%= link_to soft.title, soft.file.url %></li>
+				<li><%= link_to image_tag("http://darkstardesignsblog.files.wordpress.com/2012/02/download-button.png"), soft.file.url %></li>
 			<% end %>
 		</ul>
 	</div>

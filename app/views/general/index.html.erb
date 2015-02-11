@@ -2,5 +2,11 @@
 	<p>hblkbhkhb</p>
 </div>
 <div class="active_article">
+	<% @articles.each do |article| %>
+		<div class ="article"> <%= image_tag article.image.url(:thumb) %>
+			<p><%= article.content %></p>
+			<%= link_to "Kommentēt", general_article_path(:id => article.id) %> 
+		</div>
+	<% end %>
 <!-- <div class="banner1"><img src="images/side_skyscraper.jpg"></div> -->
 </div>

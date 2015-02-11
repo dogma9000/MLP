@@ -3,11 +3,14 @@
 	</p>
 </div>
 <div class="active_article">
-	<% @gallery.each do |art| %>
-		<div class="random_icons">
-			<%= image_tag(art.image.url) %>
-			<h3><%= art.title %></h3>
-		</div>
-	<% end %>
+	<div class="gallery">			
+		<% @gallery.each do |art| %>
+			<div class="gal_img">
+				<%= link_to image_tag(art.file.url), art.file.url, data:{lightbox: :gallery} %>
+				<h3><%= art.title %></h3>
+			</div>
+		<% end %>
+		<div class="clear"></div>
+	</div>
 </div>
 

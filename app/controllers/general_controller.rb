@@ -1,6 +1,10 @@
 class GeneralController < ApplicationController
   before_filter :banner_setter
   def index
+    @articles=Acticle.all
+  end
+  def article
+    @article=Acticle.find params[:id]
   end
   def upload
   	@file=UploadedFile.new
@@ -14,4 +18,5 @@ class GeneralController < ApplicationController
   def uploaded_file_params
   	params.require(:uploaded_file).permit(:file, :description, :user_id)
   end
+
 end

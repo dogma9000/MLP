@@ -167,3 +167,12 @@ in routes izlabot:
 
   
   sataisit atradisanas lapas
+
+
+  izveidot modeli comment ar atributiem:
+  -article.reference
+  -reference uz user
+  -saturs (content)
+
+  css un html comentaram
+  izveidot general articles lapu

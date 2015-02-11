@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require lightbox
  *= require_self
  */
 
@@ -105,6 +106,7 @@ li {
     text-align: center;
 }
 .gal_img img{
+    width: 100px;
     display: inline;
     margin: 5px;
     border: 1px solid #ffffff;
