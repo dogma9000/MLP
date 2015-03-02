@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  acticle_id: 
+  rails: MyString
+  g: MyString
+  model: MyString
+  ñomment: MyString
+  article: 
+  user_id: 
+  content: MyString
+
+two:
+  acticle_id: 
+  rails: MyString
+  g: MyString
+  model: MyString
+  ñomment: MyString
+  article: 
+  user_id: 
+  content: MyString

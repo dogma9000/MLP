@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222092242) do
+ActiveRecord::Schema.define(version: 20150224092920) do
 
   create_table "acticles", force: true do |t|
     t.string   "title"
@@ -71,6 +71,20 @@ ActiveRecord::Schema.define(version: 20141222092242) do
     t.integer  "banner_file_file_size"
     t.datetime "banner_file_updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.integer  "acticle_id"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "comment_id"
+  end
+
+  add_index "comments", ["acticle_id"], name: "index_comments_on_acticle_id"
+  add_index "comments", ["comment_id"], name: "index_comments_on_comment_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "static_articles", force: true do |t|
     t.string   "title"

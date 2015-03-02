@@ -176,3 +176,19 @@ in routes izlabot:
 
   css un html comentaram
   izveidot general articles lapu
+
+  *rails g migration add_comment_to_comment comment:references
+
+  <% unless current_user.nil? %>
+    <h2>Komentēt:</h2>
+    <%= form_for comment.comemnt.new, url: comments_create_path do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+      <p>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  <% end %>

@@ -1,1 +1,46 @@
-<%= @article.title%>
+<div class="active_article">
+  <p>
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </p>
+    <p>
+      <strong>Text:</strong>
+      <%= @article.content %>
+    </p>
+    <% unless current_user.nil? %>
+      <h2>Komentēt:</h2>
+      <%= form_for @comment, url: comments_create_path do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :acticle_id, :value => @article.id%>
+        <p>
+          <%= f.label :content %><br>
+          <%= f.text_area :content %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
+    <% end %>
+    <% @article.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+      <p><%= comment.user.name %></p>
+      <%= image_tag comment.user.pic_url %>
+          <% unless current_user.nil? %>
+            <h2>Komentēt:</h2>
+            <%= form_for Comment.new, url: comments_create_path do |f| %>
+            <%= f.hidden_field :comment_id, :value => current_user.id %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+              <p>
+                <%= f.label :content %><br>
+                <%= f.text_area :content %>
+              </p>
+              <p>
+                <%= f.submit %>
+              </p>
+            <% end %>
+          <% end %>
+    <% end %>
+ 
+    <%= link_to 'Atpakaļ', root_path %> 
+</div>
+

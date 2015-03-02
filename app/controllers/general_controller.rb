@@ -4,6 +4,7 @@ class GeneralController < ApplicationController
     @articles=Acticle.all
   end
   def article
+    @comment=Comment.new
     @article=Acticle.find params[:id]
   end
   def upload

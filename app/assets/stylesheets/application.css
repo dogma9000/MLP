@@ -16,7 +16,7 @@
 
 body{
     background-image: url("../assets/cutiemark_image.jpg");
-    background-color: #000000;
+    background-color: #999966;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right; 
@@ -76,7 +76,7 @@ li {
     background-color: gray;
 }
 .article{
-    background-color: white;
+    background-color: #996666;
     padding-bottom: 5px;
 }
 .banner1{
