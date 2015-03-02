@@ -1,10 +1,8 @@
 <div class="active_article">
   <p>
-      <strong>Title:</strong>
-      <%= @article.title %>
+      <strong><%= @article.title %></strong>
     </p>
     <p>
-      <strong>Text:</strong>
       <%= @article.content %>
     </p>
     <% unless current_user.nil? %>
@@ -21,10 +19,18 @@
         </p>
       <% end %>
     <% end %>
+    
     <% @article.comments.each do |comment| %>
-      <p><%= comment.content %></p>
-      <p><%= comment.user.name %></p>
-      <%= image_tag comment.user.pic_url %>
+    <div class="comment">      
+      <div class="username">
+        <b><p><%= comment.user.name %></p></b>    
+        <%= image_tag comment.user.pic_url %>
+      </div>
+
+      <div class="cfield">
+        <p><%= comment.content %></p>
+      </div>
+    </div>
           <% unless current_user.nil? %>
             <h2>Komentēt:</h2>
             <%= form_for Comment.new, url: comments_create_path do |f| %>
@@ -40,7 +46,10 @@
             <% end %>
           <% end %>
     <% end %>
- 
+    
     <%= link_to 'Atpakaļ', root_path %> 
 </div>
+
+
+ 
 
