@@ -192,3 +192,6 @@ in routes izlabot:
       </p>
     <% end %>
   <% end %>
+
+
+  java slept komentara atbildes lauku (css)

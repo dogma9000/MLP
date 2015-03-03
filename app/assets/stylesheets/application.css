@@ -44,7 +44,7 @@ li {
     text-transform: uppercase;
 }
 
-.menu a:hover, a:active {
+.menu a:hover, .menu a:active {
     background-color: #680000;
 }
 .main{   
@@ -167,7 +167,8 @@ li {
 }
 .username{
     width: 150px;
-    display: inline-block;   
+    display: inline-block;
+ 
 }
 .cfield{
     background-color: white;
@@ -177,8 +178,8 @@ li {
     width: 500px;
     display: inline-block;
     margin: 5px;
+    margin-left: 150px;
     padding: 5px 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px black;
-    margin-top: -30px;
 }

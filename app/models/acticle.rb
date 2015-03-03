@@ -8,4 +8,9 @@ class Acticle < ActiveRecord::Base
 	has_many :comments
 
   	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+
+  	def real_comments
+  		comments.where(:parent_id => nil)
+  	end
 end

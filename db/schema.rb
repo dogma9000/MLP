@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224092920) do
+ActiveRecord::Schema.define(version: 20150303090532) do
 
   create_table "acticles", force: true do |t|
     t.string   "title"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150224092920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "comment_id"
+    t.integer  "parent_id"
   end
 
   add_index "comments", ["acticle_id"], name: "index_comments_on_acticle_id"
