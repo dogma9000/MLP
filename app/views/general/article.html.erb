@@ -32,19 +32,23 @@
       </div>
     </div>
           <% unless current_user.nil? %>
-            <h3>Komentēt:</h3>
-            <%= form_for Comment.new, url: comments_create_path do |f| %>
-            <%= f.hidden_field :parent_id, :value => comment.id %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.hidden_field :acticle_id, :value => @article.id%>
-              <p>
-                <%= f.label :content %><br>
-                <%= f.text_area :content %>
-              </p>
-              <p>
-                <%= f.submit %>
-              </p>
-            <% end %>
+            <div class="one_team clickable">          
+              <h3>Komentēt:</h3>          
+              <div class="extra_info">
+                <%= form_for Comment.new, url: comments_create_path do |f| %>
+                <%= f.hidden_field :parent_id, :value => comment.id %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.hidden_field :acticle_id, :value => @article.id%>
+                  <p>
+                    <%= f.label :content %><br>
+                    <%= f.text_area :content %>
+                  </p>
+                  <p>
+                    <%= f.submit %>
+                  </p>
+                <% end %>
+              </div>
+            </div>
           <% end %>
           <% comment.responses.each do |comment| %>
             <div class="comment">      
@@ -63,6 +67,7 @@
     <%= link_to 'Atpakaļ', root_path %> 
 </div>
 
+        
+        
 
- 
 

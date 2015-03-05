@@ -14,3 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function clickable_fucntion(){
+  $(".clickable").click(function(){
+    $(this).removeClass("clickable").addClass("one_open_team");
+    $(this).find(".extra_info").show();
+    one_open_team_fucntion();
+  });
+};
+function one_open_team_fucntion(){
+  $(".one_open_team").click(function(){
+    $(this).find(".extra_info").hide();
+    $(this).removeClass("one_open_team").addClass("clickable");
+    clickable_fucntion();
+  });
+};
+
+$(function() {
+  clickable_fucntion();
+  one_open_team_fucntion();
+});

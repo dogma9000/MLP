@@ -183,3 +183,23 @@ li {
     border-radius: 10px;
     box-shadow: 0 0 15px black;
 }
+
+
+.one_open_team{
+    background-color: #cccccc;
+    cursor: auto;
+}
+
+.one_open_team table{
+    width: 95%;
+    margin: 0 auto;
+    color: #4d4d4d;
+    font: normal 9px "Arial", sans-serif ;
+}
+.one_open_team:hover{
+    background-color: #cccccc;
+}
+
+.extra_info{
+    display: none;
+}
