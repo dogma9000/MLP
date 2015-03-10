@@ -21,15 +21,7 @@ function clickable_fucntion(){
     one_open_team_fucntion();
   });
 };
-function one_open_team_fucntion(){
-  $(".one_open_team").click(function(){
-    $(this).find(".extra_info").hide();
-    $(this).removeClass("one_open_team").addClass("clickable");
-    clickable_fucntion();
-  });
-};
 
 $(function() {
   clickable_fucntion();
-  one_open_team_fucntion();
 });

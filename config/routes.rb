@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'draugiem/callback', :as => "draugiem_callback"
 
+  get 'general/static_article'
+
   get 'general/article'
 
   get 'general/index'
