@@ -1,0 +1,3 @@
+$("#comment_res_<%= escape_javascript @comment.parent_id.to_s %>").append("<%= escape_javascript render('general/one_comment', :comment => @comment).html_safe %>");
+$(".new_comment").trigger('reset');
+clickable_fucntion();

@@ -1,0 +1,34 @@
+<div class="comment">      
+  <div class="username">
+    <b><p><%= comment.user.name %></p></b>    
+    <%= image_tag comment.user.pic_url %>
+  </div>
+
+  <div class="cfield">
+    <p><%= comment.content %></p>
+  </div>
+</div>
+<% unless current_user.nil? %>
+<div class="one_team clickable">          
+  <h3>Komentēt:</h3>        
+  <div class="extra_info">
+    <%= form_for Comment.new, :remote => true, url: comments_create_path do |f| %>
+    <%= f.hidden_field :parent_id, :value => comment.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :acticle_id, :value => comment.acticle.id%>
+      <p>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<% end %>
+<div id="comment_res_<%= comment.id %>">
+	<% comment.responses.each do |comment| %>
+		<%= render 'one_comment', :comment => comment %>
+	<% end %>
+</div>

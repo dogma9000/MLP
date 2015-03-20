@@ -4,8 +4,13 @@ class SessionsController < ApplicationController
     if user.nil?
       user = User.create(:provider => params[:provider], :uid => params[:uid], :name => params[:name], :surname => params[:surname], :pic_url => params[:image])
     end
-    sign_in_this_user user
-  	redirect_to root_path
+    if user.access
+      sign_in_this_user user
+      redirect_to root_path
+    else 
+      redirect_to general_deny_access_path
+    end
+  	
   end
 
   def logout

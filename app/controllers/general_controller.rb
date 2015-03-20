@@ -2,10 +2,13 @@ class GeneralController < ApplicationController
   before_filter :banner_setter
   def index
     @articles=Acticle.all
+    @static_article=StaticArticle.find_by_permalink "disclamer"
   end
   def article
     @comment=Comment.new
     @article=Acticle.find params[:id]
+  end
+  def deny_access
   end
   def upload
   	@file=UploadedFile.new

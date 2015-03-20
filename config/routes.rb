@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'pages/music'
   get 'pages/soft'
   get 'general/upload'
+  get 'general/deny_access'
   post 'general/create_uploaded'
   post 'comments/create'
   devise_for :admin_users, ActiveAdmin::Devise.config

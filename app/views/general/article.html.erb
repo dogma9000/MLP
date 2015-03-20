@@ -7,7 +7,7 @@
     </p>
     <% unless current_user.nil? %>
       <h3>Komentēt:</h3>
-      <%= form_for @comment, url: comments_create_path do |f| %>
+      <%= form_for @comment, :remote => true, url: comments_create_path do |f| %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :acticle_id, :value => @article.id%>
         <p>
@@ -19,51 +19,11 @@
         </p>
       <% end %>
     <% end %>
-    
-    <% @article.real_comments.each do |comment| %>
-    <div class="comment">      
-      <div class="username">
-        <b><p><%= comment.user.name %></p></b>    
-        <%= image_tag comment.user.pic_url %>
-      </div>
-
-      <div class="cfield">
-        <p><%= comment.content %></p>
-      </div>
-    </div>
-    <% unless current_user.nil? %>
-      <div class="one_team clickable">          
-        <h3>Komentēt:</h3>        
-        <div class="extra_info">
-          <%= form_for Comment.new, url: comments_create_path do |f| %>
-          <%= f.hidden_field :parent_id, :value => comment.id %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.hidden_field :acticle_id, :value => @article.id%>
-            <p>
-              <%= f.label :content %><br>
-              <%= f.text_area :content %>
-            </p>
-            <p>
-              <%= f.submit %>
-            </p>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <% comment.responses.each do |comment| %>
-      <div class="comment">      
-        <div class="username">
-          <b><p><%= comment.user.name %></p></b>    
-          <%= image_tag comment.user.pic_url %>
-        </div>
-
-        <div class="cfield">
-          <p><%= comment.content %></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-  
+    <div id="all_comments">
+      <% @article.real_comments.each do |comment| %>
+        <%= render 'one_top_comment', :comment => comment %>
+      <% end %>
+  </div>
   <%= link_to 'Atpakaļ', root_path %> 
 </div>
 
